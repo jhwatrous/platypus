@@ -1,6 +1,7 @@
 import { NavLink } from './../../../constants/menuLinks'
 
 const wholeSection = 'whole-section'
+const sectionBasicsCourse = 'basics-course'
 const sectionIntroductionCourse = 'introduction-course'
 const sectionQMLCourse = 'quantum-machine-learning'
 const sectionPrerequisites = 'prerequisites'
@@ -16,6 +17,7 @@ const sectionTutorials = 'tutorials'
 const sectionSummerSchool = 'summer-schools'
 const sectionProblemSets = 'problem-sets'
 
+const pathBasicsCourse = '/course/basics'
 const pathIntroductionCourse = '/course/introduction'
 const pathQuantumMachineLearning = '/course/machine-learning'
 const pathPrerequisites = '/course/ch-prerequisites'
@@ -35,6 +37,46 @@ const tutorialsBaseUrl = 'https://qiskit.org/documentation/tutorials'
 type MegaDropdownMenuGroup = {
   title: NavLink,
   content: NavLink[]
+}
+
+const BASICS_COURSE: MegaDropdownMenuGroup = {
+  title: {
+    label: 'Basics of quantum information',
+    url: `${pathBasicsCourse}`,
+    segment: {
+      cta: wholeSection, location: sectionBasicsCourse
+    }
+  },
+  content: [
+    {
+      label: 'Single systems',
+      url: `${pathBasicsCourse}/single-systems`,
+      segment: {
+        cta: 'single_systems', location: sectionBasicsCourse
+      }
+    },
+    {
+      label: 'Multiple systems',
+      url: `${pathBasicsCourse}/multiple-systems`,
+      segment: {
+        cta: 'multiple_systems', location: sectionBasicsCourse
+      }
+    },
+    {
+      label: 'Quantum circuits',
+      url: `${pathBasicsCourse}/quantum-circuits`,
+      segment: {
+        cta: 'quantum-circuits', location: sectionBasicsCourse
+      }
+    },
+    {
+      label: 'Quantum protocols and games',
+      url: `${pathBasicsCourse}/protocols-games`,
+      segment: {
+        cta: 'protocols-games', location: sectionBasicsCourse
+      }
+    }
+  ]
 }
 
 const INTRODUCTION_COURSE: MegaDropdownMenuGroup = {
@@ -332,9 +374,9 @@ const GAMES_AND_DEMOS: MegaDropdownMenuGroup = {
     },
     {
       label: 'Estimating Pi Using Quantum Phase Estimation Algorithm',
-      url: `${pathGamesAndDemos}/estimating-pi-pi-using-quantum-phase-estimation-algorithm`,
+      url: `${pathGamesAndDemos}/estimating-pi-using-quantum-phase-estimation-algorithm`,
       segment: {
-        cta: 'estimating-pi-pi-using-quantum-phase-estimation-algorithm', location: sectionGamesAndDemos
+        cta: 'estimating-pi-using-quantum-phase-estimation-algorithm', location: sectionGamesAndDemos
       }
     },
     {
@@ -1426,6 +1468,7 @@ type MegaDropdownMenuContent = MegaDropdownMenuSection[]
 const COURSES_SECTION: MegaDropdownMenuSection = {
   title: 'Courses',
   content: [
+    BASICS_COURSE,
     INTRODUCTION_COURSE,
     QML_COURSE
   ]
